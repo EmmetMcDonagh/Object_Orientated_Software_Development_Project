@@ -8,6 +8,7 @@
 * Configuration
 * Troubleshooting
 * FAQ
+* References
 
 ## INTRODUCTION
 
@@ -16,7 +17,7 @@
   The program allows users to select an image an apply different filters. It displays a four option menu, where users can choose an image, 
   see the different filters available and select the desired filter and the last option allows the user to quit the program.
   
-  ## REQUIREMENTS
+## REQUIREMENTS
 
 * As it comes inside a zip compressed folder, all the files need to be extracted to a secure location in the user's machine.
 
@@ -57,7 +58,7 @@ Q: What happens when misspelling the name of the filter?
 
 A: In this case, the user will be prompt to try again, until it types the filter name in a correct way.
 
-References:
+## REFERENCES
 
 Classroom (n.d.) How to get and set pixel value in Java How to get and set pixel value in Java - Image Processing Project - DYclassroom | Have fun learning :-)
 
