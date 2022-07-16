@@ -1,34 +1,44 @@
-# Filtering-an-Image-with-a-Convolution-Kernel
-H.Dip. in Science (Software Development)
-Object-Oriented Software Development (2021)
-ASSIGNMENT:  Filtering an Image with a Convolution Kernel
+# IMAGE FILTERING SYSTEM V0.1
 
+## CONTENTS OF THIS FILE
+   
+* Introduction
+* Requirements
+* Installation
+* Configuration
+* Troubleshooting
+* FAQ
 
+## INTRODUCTION
 
+* The Image Filtering System V0.1 is a program that provides many image editing features for raster images.
+  It uses a matrix , 2D array of numbers that slides across the pixels and makes computations changing the value of each pixel.
+  The program allows users to select an image an apply different filters. It displays a four option menu, where users can choose an image, 
+  see the different filters available and select the desired filter and the last option allows the user to quit the program.
+  
+  ## REQUIREMENTS
 
-Submitted by: Emmet McDonagh (G00222864)
-Submitted to: Dr. John Healy
+* As it comes inside a zip compressed folder, all the files need to be extracted to a secure location in the user's machine.
 
+* This program requires to be opened from a Terminal.
 
+## INSTALLATION
+ 
+* To Install the program we need to unzip the folder, to do that, we press and hold (or right-click) the folder, 
+  and select Extract All.
 
+* From there, navigate to src folder and open a Terminal, .
 
-31st August 2021
+  	- In the Terminal the first step is to compile the java files, typing: javac ie\gmit\dip\*.java
 
+ 	- When the previous step is done, run the program with the following command: java ie.gmit.dip.Runner
 
-Overview:
+	- After that, the main menu of the program will appear.
 
-To develop a command line menu driven Java application which implements convolution on 2D arrays of buffered images using kernels. In image processing, a convolution kernel is a small 2D matrix, in the application, 2D array structures are used to perform operations like blurring, sharpening, edge-detection etc. on PNG images (Powell, 2014). 
+## CONFIGURATION
+ 
+* Once the main menu is showing in the terminal we will see four options to choose from:
 
-The application contains a command-line driven menu which asks the user to specify the input and output of file images. Relative file paths from the current directory (./filename.png) have been used to make the application more portable. Inside the zip file along with the src and Readme.txt, there are two extra folders, one containing the png images and the other where all output is saved to. These are added to the root of the eclipse project, and therefore not in the src or bin directory. 
-
-Within the src folder there are four main classes: runner.java, menu.java, kernel.java and consolecolour.java. The required main() method to run the application is defined inside the class called Runner.java. 
-Inside kernel.class each of the 2D array kernels implemented are declared as "public static final double [][] therefore they belong to this class and not an instance of it. The kernels can be referred to each array using the ClassName.featureName notation, e,g. double [][]kernel =Kernel.BOX_BLUR. 
-
-The console colour class prints colour in the console, the ANSI escape codes are used to use colour in the output. 
-
-Inside the menu class, there are four different methods for different menus, each displaying a prompt to process the user response. Scanner is imported to read in the filename and ImageIO to write the file out as in output.png. A new switch statement is used to process the choice. The menu is kept alive inside a loop. When (4) is selected, the loop control is set to false. Inside the code, contains next() and then when inputting a number to select a menu choice, if the number entered is incorrect I have it in the loop to sysout "[ERROR] invalid input". 
-
-The four methods are as follows:
 1) EnterImageFilePath(). Asks the user to enter the image file path that they want to read and write using buffered image "[INFO] Input File Path". The file path which the user enters is represented as a String. 
 
 2) SelectFilter().Asks the user to enter the filter that they want to use to process the image "[INFO] Select a filter you wish to apply. [1-11]". Lists the set the filters available i.e. edge detection, BOX_BLUR etc.
@@ -37,49 +47,15 @@ The four methods are as follows:
 
 4) Quit(). Terminates the application. 
 
-The EnterImageFilePath() function prompts the user to specify the file path that reads in an image, therefore a File class is imported. When executing read/write operations also known as I/O or exception handling, errors might occur in the code. To handle the errors, the IOException class has been imported into menu.class and a try-catch block is used. To hold the image file, the bufferedImage class is imported. To execute the image read write operation the ImageIO class is imported. Inside the body of the try-catch statement, an object of File class is created and passed as parameter the image file path. The File object f holds the image file path. When writing the image file, a try-catch block is used again to handle any exception handling errors. An instance of File type is created and passed as parameter the image file path where we want to write the image as output. The image file is written using the write() function of the ImageIO class. The buffered image is then saved as output. 
+## FAQ
 
-The SelectFilter() function lists the choice of filters available in kernel.java i.e. edge detection, BOX_BLUR etc. The following steps have been done to filter an image file. 
-1. Read in an image from the current directory ("./filename.png") and convert to a buffered image. The kernel filters can be accessed like so: double [ ] [ ] kernel =kernel.BOX_BLUR; etc. 
+Q: After running the program where can I find the new image?
 
-2. Two variables are declared inside the main() function to hold the width and height dimensions of the image. To get the dimensions of the image, we use the getWidth() and getHeight() functions. 
+A: The new image will be located inside the << resources >> folder, located in the program main folder.
 
-3. Two variables x and y are created and two for loops are used to traverse each pixel. Read each of the pixels from the Buffered Image into the same width/height position in the double[][] array:
-for (int y = 0; y < height; y++) {
-	for (int x = 0; x < width; x++) {
-The value of the pixel at co-ordinate (x, y) is acquired using the getRGB(x,y) function.
+Q: What happens when misspelling the name of the filter?
 
-4. Calculating X and Y coordinates of the pixel to be multiplied with current kernel element
-
-5. Apply the convolution kernel. 
-
-6. The RGB is multiplied with current filter element and added on to the variables red, blue and green
-
-7. Write each of the values in the double [ ][ ] array into the pixels in the buffered Image. 
-
-8. Save the buffered Image as a png image to a folder called output in the application. 
-
-Additional extras:
-The AdditionalParametersHere() function adds extra options to the menu. The six methods are as follows:
-
-1) GreyScale: Converts an RGB image to grey scale.
-
-2) RedImage: Converts an RGB image to a Red Image. 
-
-3) GreenImage: Converts an RGB image to a Green Image.
-
-4) BlueImage: Converts an RGB image to a Blue Image.
-
-5) Brightness: Adjusts the Brightness of an image. 
-
-6) Hue: Adjusts the hue of an image. 
-
-A grey scale function converts an RGB image to grey scale. Generally, a grayscale image uses an 8-bit representation for each pixel, therefore the values from 0 to 255 can be represented. A grayscale image in 8-bit representation will be a matrix, and the values that are returned from a red, blue or green variables can be anywhere from 0 to 255 (Joram, 2019). An image is read in and converted to Buffered Image variable image. The File variable f is set to null. Two variables are declared inside the main() function to hold the width and heights dimensions of the image. This function takes as parameter the x, y co-ordinates of the pixel and in turn returns an integer value. Inside the outer for loop the value of the pixel at co-ordinate (x, y) is acquired using the getRGB(x,y) function. The alpha, red, green and blue values are then extracted from the pixel value. We do this by creating five integer variables of p, a, r, g, and b to store the pixels respectively (Shakeel, 2014). The Red bits occupy 16 bits from index 16 to index 23.The Green bits occupy 8 bits to index 15.In order to get the Green bits, you need to do right bit shift the 32 bits of the pixels by 8 positions and then bitwise add it with 0Xff.The Blue bits occupy 8 bits from index 0 to index 7. We then find the average of R, B, and G value. To set the pixel value to an image at the x, y co-ordinates, we use the setRGB(x,y,p) function. We finally write out the file in PNG format. 
-
-To adjust the brightness of an image, the input file is prepared and converted to a buffered image. Two variables are declared inside the main() function to hold the width and height dimension of the image. The getWidth() and getHeight() functions are used to achieve this. An integer variable is declared for storing the factor value and set to 0. A do while loop is used for processing the image matrix. We then add factor to the variables red, green and blue. The red, green and blue elements are returned in the range 0-255 in the default Srgb space. An else if statement is used for the processing loop. The value of the variables red, green, blue at co-ordinate (x, y) is acquired using the getRGB(x,y) function. We finally write out the file in PNG format. 
-
-To adjust the hue of an image, the image file is read in and converted to a buffered image. Again, two integer variables are declared inside the main() function to hold the height and width dimensions of the image. An integer variable is declared to hold the hue value and is set to 0. Two variables x and y are created and two for loops are used to process the image matrix. The components of a colour are converted, as stated by the HSB model to an equivalent set of values for the default RGB model. The saturation and brightness elements are stored as floating point values. 
-
+A: In this case, the user will be prompt to try again, until it types the filter name in a correct way.
 
 References:
 
